@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mundo</title>
+</head>
+<body>
+	<div id="map-main">
+		<div class = "map-box art-map">
+			<div class = "art-header">
+				<center><h1> Bansia </h1></center>
+			</div>
+			<div class ="art-layout-wrapper">
+				<div class ="art-content-layout">
+					<div class = "art-layout-cell art-sidebar1">
+						<center><h2> Menu </h2></center>
+						<div class="hr"><hr /></div>
+							<% @mapa = 1%>
+							<p> <%= link_to "Tipo Recursivo", :controller => 'analisis', :action => "tr", :id => @mapa %> </p>
+							<p>  <%= link_to "Tipo Cognitivo", :controller => 'analisis', :action => "tc", :id => @mapa   %></p>
+							<p> <%= link_to "Mapa", :controller => 'analisis', :action => "showmapa", :id => @mapa %> </p>
+							<p> <%= link_to "Central", :controller => 'analisis', :action => "central", :id => @mapa %> </p>
+							<p> <%= link_to "Consecuencia", :controller => 'analisis', :action => "consecuencia", :id => @mapa %></p>
+							<p> <%= link_to "Explicacion", :controller => 'analisis', :action => "explicacion", :id => @mapa %></p>
+							<p> <%= link_to "Hieset", :controller => 'analisis', :action => "hieset", :id => @mapa %> </p>
+						</div>
+						<div class = "art-layout-cell art-content">
+							<center><h2> Mapa </h2></center>
+							<div class="hr"><hr /></div>
+						</div>
+						<div class = "art-layout-cell art-sidebar2">
+							<h2> Tipo Cognitivo: </h2>
+							<div class="hr"><hr /></div>
+							<% if @map.indice_cog <= 1 || @map.indice_cog > 0.85  %>
+							<p> Causal Fuerte</p>
+							<% elsif @map.indice_cog<= 0.85 || @map.indice_cog > 0.65 %>
+							<p>	Causal Medio </p>
+							<% elsif @map.indice_cog <= 0.65 || @map.indice_cog>= 0.5 %>
+							<p>	Causal Debil </p>
+							<% elsif @map.indice_cog<= 0.35 || @map.indice_cog > 0.15 %>
+							<p>	Asociativo Medio </p>
+							<% elsif @map.indice_cog <= 0.15 || @map.indice_cog > 0 %>
+							<p>	Causal Medio </p>
+							<% else %>
+							<% end %>				
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

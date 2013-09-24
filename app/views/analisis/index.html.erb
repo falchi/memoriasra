@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analisis Mapa</title>
+</head>
+<body>
+	<div id="map-main">
+		<div class = "map-box art-map">
+			<div class = "art-header">
+				<center><h1> Bansia </h1></center>
+			</div>
+			<div class ="art-layout-wrapper">
+				<div class ="art-content-layout">						
+					<div class = "art-layout-cell art-sidebar1">								
+						<center><h2> Menu </h2></center>
+						<div class="hr"><hr /></div>
+						<% @mapa = 1%>
+						<p> <%= link_to "Tipo Recursivo", :controller => 'analisis', :action => "tr", :id => @mapa %> </p>
+						<p>  <%= link_to "Tipo Cognitivo", :controller => 'analisis', :action => "tc", :id => @mapa %></p>
+						<p> <%= link_to "Mapa", :controller => 'analisis', :action => "showmapa", :id => @mapa %> </p>
+						<p> <%= link_to "Central", :controller => 'analisis', :action => "central", :id => @mapa %> </p>
+						<p> <%= link_to "Consecuencia", :controller => 'analisis', :action => "consecuencia", :id => @mapa %> </p>
+						<p> <%= link_to "Explicacion", :controller => 'analisis', :action => "explicacion", :id => @mapa %> </p>
+						<p> <%= link_to "Hieset", :controller => 'analisis', :action => "hieset", :id => @mapa %> </p>
+														
+					</div>
+					<div class = "art-layout-cell art-content">
+							<center><h2> Mapa </h2></center>
+							<div class="hr"><hr /></div>
+					</div>
+					<div class = "art-layout-cell art-sidebar2">
+						<center><h2> Resultados </h2></center>
+						<div class="hr"><hr /></div>
+					</div>						
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+	

@@ -1,0 +1,21 @@
+<% title 'Registro' %>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :usuario %><br />
+  <%= f.text_field :usuario, :autofocus => true %></div>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password, 'Contraseña' %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation, 'Confirmar Contraseña' %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Registrarse" %></div>
+<% end %>
+
+<%= link_to 'Volver', :back %>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analisis Mapa</title>
+</head>
+<body>
+	<div id="map-main">
+		<div class ="cleared reset-box"></div>
+		<div class = "map-box art-map">
+			<div class = "map-box-body art-map-body">
+				<div class = "art-header">
+					<center><h1> Bansia </h1></center>
+				</div>
+				<div class ="cleared reset-box"></div>
+				<div class ="art-layout-wrapper">
+					<div class ="art-content-layout">
+						<div class = "art-content-layout-row">
+							<div class = "art-layout-cell art-sidebar1">
+								<div class = "art-bar art-vmenublockheader">
+									<center><h2> Menu </h2></center>
+									<div class="hr"><hr /></div>
+									<% @mapas.each do |mapas|%>
+									<p> <%= link_to "Tipo Recursivo", mapa_path(@mapas) %> </p>
+									<p>  <%= link_to "Tipo Cognitivo", "/" + analisis[:id].to_s  + "/tr" %></p>
+									<p> mapas </p>
+									<p> Central</p>
+									<p> Consecuencia</p>
+									<p> Explicacion</p>
+									<p> Hesiet </p>
+									<% end %>		
+								</div>
+							</div>
+							<div class = "art-layout-cell art-content">
+									<center><h3> Mapa </h3></center>
+									<div class="hr"><hr /></div>
+							</div>
+							<div class = "art-layout-cell art-sidebar2">
+									<h3> Calculo Tipo Recursivo: </h3>
+									<div class="hr"><hr /></div>
+									<% if @map.tr > 10 %>
+									<p> Tipo Recursivo alto </p>
+									<% elsif @map.tr<=10 || @map.tr>5  %>
+									<p>	Tipo Recursivo Medio </p>
+									<% else %>
+									<p> Tipo Recursivo Debil </p>
+									<% end %>				
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mundo</title>
+</head>
+<body>
+	<div id="map-main">
+		<div class ="cleared reset-box"></div>
+		<div class = "map-box art-map">
+			<div class = "map-box-body art-map-body">
+				<div class = "art-header">
+					<center><h1> Bansia </h1></center>
+				</div>
+				<div class ="cleared reset-box"></div>
+				<div class ="art-layout-wrapper">
+					<div class ="art-content-layout">
+						<div class = "art-content-layout-row">
+							<div class = "art-layout-cell art-sidebar1">
+								<div class = "art-bar art-vmenublockheader">
+									<center><h2> Menu </h2></center>
+									<div class="hr"><hr /></div>
+									<% @mapa.each do |mapa|%>
+									<p> <%= link_to "Tipo Recursivo", :controller => 'analisis', :action => "tr", :id => @mapa %> </p>
+									<p> <%= link_to "Tipo Cognitivo", :controller => 'analisis', :action => "tc", :id => @mapa %></p>
+									<p> <%= link_to "Mapa", :controller => 'analisis', :action => "showmapa", :id => @mapa %> </p>
+									<p> <%= link_to "Central", :controller => 'analisis', :action => "central", :id => @mapa %> </p>
+									<p> <%= link_to "Consecuencia", :controller => 'analisis', :action => "consecuencia", :id => @mapa %></p>
+									<p> <%= link_to "Explicacion", :controller => 'analisis', :action => "explicacion", :id => @mapa %></p>
+									<p> <%= link_to "Hieset", :controller => 'analisis', :action => "hieset", :id => @mapa %> </p>
+									<% end %>		
+								</div>
+							</div>
+							<div class = "art-layout-cell art-content">
+									<center><h2> Mapa </h2></center>
+									<div class="hr"><hr /></div>
+									<% @mapa.each do |mapa| %>
+									<p> ID Mapa:  <%= mapa.id %></p>
+									<% end %>
+									<% @arco.each do |arco|%>
+									<p> Arco ID: <%= arco.id %> </p>
+									<p> Nodo Inicio:<%= arco.desde_id %>  </p>
+									<p> Nodo FIn: <%= arco.hacia_id %></p>
+									<% end %>		
+
+							</div>
+							<div class = "art-layout-cell art-sidebar2">
+									<center><h2> Consecuencia: </h2></center>
+									<div class="hr"><hr /></div>
+									<% dg = [] %>
+									<% @arco.each do |arco|%>
+									<% dg.push(arco.inicio , arco.fin) %>
+									<% end %>		
+									<% graph2 = CustomGraph.from_array(dg)%>
+									<% result = graph2.consequences("nodo2") %>
+									<%= result %>								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

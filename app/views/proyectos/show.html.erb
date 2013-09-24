@@ -1,0 +1,49 @@
+<% title "Proyecto", false %>
+
+<h1 style="display: inline;"><%= @proyecto.nombre %></h1> <%= link_to "Editar", [:edit, @proyecto] %> |
+  <%= link_to "Eliminar", @proyecto, :confirm => 'Confirme que desea eliminar este proyecto', :method => :delete %>
+<p><i>
+  <%= @proyecto.descripcion %>
+</i></p>
+
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Rut</th>
+    <th>Cargo</th>
+  </tr>
+  <% @proyecto.personas.each do |persona| %>
+    <tr>
+      <td><%= link_to persona.nombre, persona %></td>
+      <td><%= persona.rut %></td>
+      <td><%= persona.cargo %></td>
+      <td><%= link_to 'Eliminar', persona,
+                 method: :delete,
+                 data: { confirm: 'Confirme que desea eliminar' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Agregar persona:</h2>
+<%= form_for [@proyecto, @proyecto.personas.build] do |f| %>
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.label :rut %><br />
+    <%= f.text_field :rut %>
+  </p>
+  <p>
+    <%= f.label :cargo %><br />
+    <%= f.text_field :cargo %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to "Volver", proyectos_path %>
+</p>

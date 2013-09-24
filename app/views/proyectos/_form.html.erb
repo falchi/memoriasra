@@ -1,0 +1,12 @@
+<%= form_for @proyecto do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.label :descripcion, 'Descripción' %><br />
+    <%= f.text_area :descripcion %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="container">
+      <div style="text-align: right;">
+        <% if usuario_signed_in? %>
+          Bienvenido, <%= current_usuario.usuario %><br /><%= link_to "Cerrar Sesión", destroy_usuario_session_path, method: :delete %>
+        <% end %>
+      </div>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <!--<p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>-->
+      <%= yield %>
+    </div>
+  </body>
+</html>

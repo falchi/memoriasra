@@ -1,0 +1,68 @@
+﻿<% title "Editar Mapa - " + @mapa.titulo, false %>
+
+<%= form_for @mapa do |f| %>
+  <%= f.error_messages %>
+<div class ="art-content-layout">
+    <div class = "art-content-layout-row">
+        <div id="leftPanel" class = "art-layout-cell art-sidebar1 panel">
+            <div class = "art-bar art-vmenublockheader">
+                <center><h2> Menu </h2></center>
+                <hr />
+                <p> <%= link_to "Eliminar", @mapa, :confirm => 'Confirme que desea eliminar este mapa', :method => :delete %> </p>
+                <p> <%= link_to "Cancelar", @mapa %> </p>
+                <hr />
+                <p><%= f.label :titulo %>: <%= f.text_field :titulo, :size => 22 %></p>
+                <p><%= f.submit "Guardar" %></p>
+                <hr />
+                <p> Doble click en un espacio vacío permite crear nuevos nodos. </p>
+                <p> Doble click en un nodo permite cambiar su nombre. </p>
+                <p> Doble click en un arco permite cambiar sus propiedades. </p>
+            </div>
+        </div>
+        <div class = "art-layout-cell art-content">
+            <center><h1> <%= @mapa.titulo %> </h1></center>
+            <hr />
+            <div id="canvasContainer">
+                <div id="canvasOverlay">
+                </div>
+                <canvas width="1000px" height="600px" data-mode="edit" ></canvas>
+                <script type="text/javascript">
+                function getMapData() {
+                    return <%= raw @mapa_json %>
+                }
+                </script>
+            </div>
+        </div>
+        <div id="rightPanel" class = "art-layout-cell art-sidebar2 panel">
+            <div>
+                <center><h2>Bansia</h2></center>
+                <hr />
+                <button class="createEdge" data-bidi="false" ><%= image_tag "edge_nobidi_trans.png" %></button>
+                <button class="createEdge" data-bidi="true" ><%= image_tag "edge_bidi_trans.png" %></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input id="json_content" type="hidden" value="" name="mapa_json" />
+<% end %>
+
+<div style="display: none;">
+	<div id="newBoxTemplate" class="overlay newBox">
+		<input type="text" class="text" />
+		<button class="save">Guardar</button>
+		<button class="cancel">Cancelar</button>
+	</div>
+	<div id="editBoxTemplate" class="overlay editBox">
+		<input type="text" class="text" />
+		<button class="save">Guardar</button>
+		<button class="delete">Borrar</button>
+		<button class="cancel">Cancelar</button>
+	</div>
+	<div id="editEdgeTemplate" class="overlay editEdge">
+		<button class="changeType">Cambiar Tipo</button>
+        <button class="swap">Cambiar Direccion</button>
+		<button class="delete">Borrar</button>
+		<button class="cancel">Cancelar</button>
+	</div>
+</div>

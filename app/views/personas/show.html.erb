@@ -1,0 +1,43 @@
+<% title "Personas", false %>
+
+<h1 style="display: inline;"><%= @persona.nombre %></h1> <%= link_to "Editar", [:edit, @persona] %> |
+  <%= link_to "Eliminar", @persona, :confirm => 'Confirme que desea eliminar esta persona', :method => :delete %>
+<ul>
+  <li>Rut: <%= @persona.rut %></li>
+  <li>Cargo: <%= @persona.cargo %></li>
+</ul>
+
+
+<table>
+  <tr>
+    <th>Mapa</th>
+    <th>Indice Cognitivo</th>
+    <th>Indice Recursivo</th>
+  </tr>
+  <% @persona.mapas.each do |mapa| %>
+    <tr>
+      <td><%= link_to mapa.titulo, mapa %></td>
+      <td><%= mapa.indice_cog ? mapa.indice_cog.round(2) : "-" %></td>
+      <td><%= mapa.indice_rec || "-" %></td>
+      <td><%= link_to 'Eliminar', mapa,
+                 method: :delete,
+                 data: { confirm: 'Confirme que desea eliminar' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Crear Mapa:</h2>
+<%= form_for [@persona, @persona.mapas.build] do |f| %>
+  <p>
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<p>
+  <%= link_to "Volver", @proyecto %>
+</p>

@@ -1,0 +1,55 @@
+﻿<% title "Mapa - " + @mapa.titulo, false %>
+
+<div class ="art-content-layout">
+    <div class = "art-content-layout-row">
+        <div id="leftPanel" class = "art-layout-cell art-sidebar1 panel">
+            <div class = "art-bar art-vmenublockheader">
+                <center><h2> Menu </h2></center>
+                <hr />
+                <p> <%= link_to "Editar", [:edit, @mapa] %> </p>
+                <p> <%= link_to "Eliminar", @mapa, :confirm => 'Confirme que desea eliminar este mapa', :method => :delete %> </p>
+                <p> <%= link_to "Volver", @mapa.persona %> </p>
+                <hr />
+                <div id="map_calcs">
+                    <p> <%= link_to "Tipo Cognitivo", mapa_mapa_tc_path(@mapa), "data-title" => "Tipo Cognitivo" %></p>
+                    <p> <%= link_to "Tipo Recursivo", mapa_mapa_tr_path(@mapa), "data-title" => "Tipo Recursivo" %> </p>
+                    <p> <%= link_to "Calcular Puntajes Centrales", mapa_mapa_central_path(@mapa), "data-type" => "central", "data-title" => "Central" %> </p>
+                    <p> <input type="checkbox" name="exacto" >Cálculo Exacto</input> </p>
+                    <p> <%= link_to "Calcular Hieset de los nodos seleccionados", mapa_mapa_hieset_path(@mapa), "data-type" => "hieset", "data-title" => "Hieset" %> </p>
+                </div>
+            </div>
+        </div>
+        <div class = "art-layout-cell art-content">
+            <center><h1> <%= @mapa.titulo %> </h1></center>
+            <hr />
+            <div id="canvasContainer">
+                <div id="canvasOverlay">
+                </div>
+                <canvas width="1000px" height="600px" data-mode="view" ></canvas>
+                <script type="text/javascript">
+                function getMapData() {
+                    return <%= raw @mapa_json %>
+                }
+                </script>
+            </div>
+        </div>
+        <div id="rightPanel" class = "art-layout-cell art-sidebar2 panel">
+            <%= image_tag("ajax-loader.gif", :class => "loader") %>
+            <div>
+                <center><h2>Bansia</h2></center>
+                <hr />
+                <div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="display: none;">
+<div id="viewNodeTemplate" data-url="<%= mapa_mapa_info_path(@mapa, "") %>" >
+    <p>Valor como Centralizador: <span class="central"></span></p>
+    <p>Tipo de Pensamiento: <span class="tp_type"></span> (<span class="tp_score"></span>)</p>
+    <p><%= link_to "Consecuencias", mapa_mapa_explicacion_path(@mapa, ""), :class => "graphLink consequences" %></p>
+    <p><%= link_to "Explicaciones", mapa_mapa_consecuencia_path(@mapa, ""), :class => "graphLink explanations" %></p>
+    <p><a class='restoreLink' href='#' >Restaurar Mapa</a></p>
+</div>
+</div>

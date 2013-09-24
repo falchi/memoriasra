@@ -1,0 +1,20 @@
+<% title "Proyectos" %>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripción</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% for proyecto in @proyectos %>
+    <tr>
+      <td><%= link_to proyecto.nombre, proyecto %></td>
+      <td><%= proyecto.descripcion %></td>
+      <td><%= link_to "Editar", edit_proyecto_path(proyecto) %></td>
+      <td><%= link_to "Eliminar", proyecto, :confirm => 'Confirme que desea eliminar el proyecto', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Crear Proyecto", new_proyecto_path %></p>

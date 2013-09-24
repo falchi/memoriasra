@@ -1,0 +1,59 @@
+#canvasOverlay, .overlay {
+	position: absolute;
+}
+#canvasContainer {
+	height: 600px;
+	width: 1000px;
+    border: solid black 1px;
+}
+div.overlay {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: white;
+	border: solid gray 1px;
+	text-align: center;
+	padding: 2px;
+}
+div.overlay button {
+	margin: 0;
+}
+.newBox button {
+	width: 48%;
+}
+.editBox input {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: solid black 1px;
+	width: 100%;
+}
+.editBox button, .editEdge button {
+	width: 100%;
+}
+#content div  {
+	margin: 5px;
+}
+.float {
+	float: left;
+}
+.createEdge img {
+	width: 55px;
+	height: 55px;
+}
+.createEdge.pressed {
+	border-style: inset;
+}
+#rightPanel img.loader {
+    display: none;
+}
+div.list {
+    text-align: left;
+}
+
+div.list ul {
+    padding-left: 20px;
+}
+#rightPanel a.restoreLink {
+    display: none;
+}
