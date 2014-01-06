@@ -10,6 +10,7 @@
   <body>
     <div id="container">
       <div style="text-align: right;">
+        <%= render 'layouts/user_header' %>
         <% if usuario_signed_in? %>
           Bienvenido, <%= current_usuario.usuario %><br /><%= link_to "Cerrar Sesión", destroy_usuario_session_path, method: :delete %>
         <% end %>

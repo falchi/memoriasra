@@ -15,3 +15,4 @@
 //= require jcanvas
 //= require frontend
 //= require_tree .
+//= require twitter/bootstrap
