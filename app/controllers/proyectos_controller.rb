@@ -1,4 +1,5 @@
 class ProyectosController < ApplicationController
+  before_filter :authenticate_user!
   def index
     @proyectos = Proyecto.all
   end

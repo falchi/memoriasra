@@ -1,5 +1,7 @@
 Bansia::Application.routes.draw do
  
+  devise_for :users
+
   devise_for :usuarios, :path_names => { :sign_up => 'registro'} 
 
   resources :proyectos do
