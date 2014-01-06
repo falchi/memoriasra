@@ -6,8 +6,8 @@ gem 'foreigner', '1.4.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-#gem 'pg', '0.16.0'
+#gem 'sqlite3'
+gem 'pg', '0.16.0'
 
 
 # Gems used only for assets and not required
