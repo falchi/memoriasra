@@ -47,5 +47,5 @@ gem 'devise'
 
 gem "mocha", :group => :test
 gem 'rails_12factor', group: :production
-#gem "devise"
+
 gem "bootstrap-sass-rails"
