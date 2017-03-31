@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.22'
 gem 'json', '1.8.0'
 gem 'foreigner', '1.4.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
-gem 'pg', '0.16.0'
+gem 'pg', '0.20.0'
 
 
 # Gems used only for assets and not required
@@ -47,5 +47,4 @@ gem 'devise'
 
 gem "mocha", :group => :test
 gem 'rails_12factor', group: :production
-gem "devise"
 gem "bootstrap-sass-rails"

@@ -4,10 +4,10 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  adapter: sqlite3
+  adapter: postgresql
   #host: localhost
   encoding: utf8
-  database: db/development.sqlite3
+  database: bansia_dev
   pool: 5
   timeout: 5000
 
@@ -21,7 +21,6 @@ test:
   encoding: utf8
   database: bansia_test
   pool: 5
-  username: bansia
   password:
 
 production:
