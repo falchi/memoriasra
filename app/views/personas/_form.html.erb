@@ -1,15 +1,15 @@
 <%= form_for @persona do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :nombre %><br />
+    <%= f.label :nombre, 'Título' %><br />
     <%= f.text_field :nombre %>
   </p>
   <p>
-    <%= f.label :rut %><br />
+    <%= f.label :rut, 'Profesor' %><br />
     <%= f.text_field :rut %>
   </p>
   <p>
-    <%= f.label :cargo %><br />
+    <%= f.label :cargo, 'Descripción' %><br />
     <%= f.text_field :cargo %>
   </p>
   <p>

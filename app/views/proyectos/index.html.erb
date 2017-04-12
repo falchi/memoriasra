@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <% if user_signed_in? %>
-    <% title "Proyectos" %>
+    <% title "Asignaturas" %>
 
     <table>
       <tr>
@@ -14,12 +14,12 @@
           <td><%= link_to proyecto.nombre, proyecto %></td>
           <td><%= proyecto.descripcion %></td>
           <td><%= link_to "Editar", edit_proyecto_path(proyecto) %></td>
-          <td><%= link_to "Eliminar", proyecto, :confirm => 'Confirme que desea eliminar el proyecto', :method => :delete %></td>
+          <td><%= link_to "Eliminar", proyecto, :confirm => 'Confirme que desea eliminar la asignatura', :method => :delete %></td>
         </tr>
       <% end %>
     </table>
 
-    <p><%= link_to "Crear Proyecto", new_proyecto_path %></p>
+    <p><%= link_to "Crear Asignatura", new_proyecto_path %></p>
     <% else %>
     <h1>Bienvenido!</h1>
     <p class="lead">

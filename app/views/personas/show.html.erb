@@ -1,10 +1,10 @@
-<% title "Personas", false %>
+<% title "Contenidos", false %>
 
 <h1 style="display: inline;"><%= @persona.nombre %></h1> <%= link_to "Editar", [:edit, @persona] %> |
-  <%= link_to "Eliminar", @persona, :confirm => 'Confirme que desea eliminar esta persona', :method => :delete %>
+  <%= link_to "Eliminar", @persona, :confirm => 'Confirme que desea eliminar este contenido', :method => :delete %>
 <ul>
-  <li>Rut: <%= @persona.rut %></li>
-  <li>Cargo: <%= @persona.cargo %></li>
+  <li>Profesor: <%= @persona.rut %></li>
+  <li>Descripción: <%= @persona.cargo %></li>
 </ul>
 
 

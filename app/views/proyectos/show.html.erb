@@ -1,7 +1,7 @@
-<% title "Proyecto", false %>
+<% title "Asignatura", false %>
 
 <h1 style="display: inline;"><%= @proyecto.nombre %></h1> <%= link_to "Editar", [:edit, @proyecto] %> |
-  <%= link_to "Eliminar", @proyecto, :confirm => 'Confirme que desea eliminar este proyecto', :method => :delete %>
+  <%= link_to "Eliminar", @proyecto, :confirm => 'Confirme que desea eliminar esta asignatura', :method => :delete %>
 <p><i>
   <%= @proyecto.descripcion %>
 </i></p>
@@ -25,22 +25,22 @@
   <% end %>
 </table>
 
-<h2>Agregar persona:</h2>
+<h2>Agregar Contenido:</h2>
 <%= form_for [@proyecto, @proyecto.personas.build] do |f| %>
   <p>
-    <%= f.label :nombre %><br />
+    <%= f.label :nombre, 'Título' %><br />
     <%= f.text_field :nombre %>
   </p>
   <p>
-    <%= f.label :rut %><br />
+    <%= f.label :rut, 'Profesor' %><br />
     <%= f.text_field :rut %>
   </p>
   <p>
-    <%= f.label :cargo %><br />
+    <%= f.label :cargo, 'Descripción' %><br />
     <%= f.text_field :cargo %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit "Agregar" %>
   </p>
 <% end %>
 
