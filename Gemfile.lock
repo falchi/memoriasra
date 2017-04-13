@@ -151,9 +151,9 @@ DEPENDENCIES
   mocha
   nifty-generators
   pg (= 0.20.0)
+  rgl
   rails (= 3.2.22)
   rails_12factor
-  rgl
   sass-rails (~> 3.2.3)
   therubyracer
   uglifier (>= 1.0.3)
