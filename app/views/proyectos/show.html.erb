@@ -10,14 +10,19 @@
 <table>
   <tr>
     <th>Nombre</th>
-    <th>Rut</th>
-    <th>Cargo</th>
+    <th>&nbsp;</th>
+    <th>Profesor</th>
+    <th>&nbsp;</th>
+    <th>Descripción</th>
   </tr>
   <% @proyecto.personas.each do |persona| %>
     <tr>
       <td><%= link_to persona.nombre, persona %></td>
+      <td>&nbsp;</td>
       <td><%= persona.rut %></td>
+      <td>&nbsp;</td>
       <td><%= persona.cargo %></td>
+      <td>&nbsp;</td>
       <td><%= link_to 'Eliminar', persona,
                  method: :delete,
                  data: { confirm: 'Confirme que desea eliminar' } %></td>

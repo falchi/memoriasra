@@ -11,14 +11,19 @@
 <table>
   <tr>
     <th>Mapa</th>
+    <th>&nbsp;</th>
     <th>Indice Cognitivo</th>
+    <th>&nbsp;</th>
     <th>Indice Recursivo</th>
   </tr>
   <% @persona.mapas.each do |mapa| %>
     <tr>
       <td><%= link_to mapa.titulo, mapa %></td>
+      <td>&nbsp;</td>
       <td><%= mapa.indice_cog ? mapa.indice_cog.round(2) : "-" %></td>
+      <td>&nbsp;</td>
       <td><%= mapa.indice_rec || "-" %></td>
+      <td>&nbsp;</td>
       <td><%= link_to 'Eliminar', mapa,
                  method: :delete,
                  data: { confirm: 'Confirme que desea eliminar' } %></td>
@@ -29,7 +34,7 @@
 <h2>Crear Mapa:</h2>
 <%= form_for [@persona, @persona.mapas.build] do |f| %>
   <p>
-    <%= f.label :titulo %><br />
+    <%= f.label :titulo, 'Autor' %><br />
     <%= f.text_field :titulo %>
   </p>
   <p>
